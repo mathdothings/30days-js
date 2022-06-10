@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      alert("We will decide if you are old enough to drive!");
+      let birthYear = Number(prompt("What is your birth year?"));
+      let nowYear = new Date().getFullYear();
+      let age = nowYear - birthYear;
+      let allowedAge = 18 - age;
+      age >= 18
+        ? alert(`You are ${age} years old and allowed to drive.`)
+        : alert(
+            `You are ${age} years old and will be allowed to drive after ${allowedAge}.`
+          );
+    </script>
+  </body>
+</html>
