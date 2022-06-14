@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      let month = prompt("Enter a month:").toLowerCase();
+      if (
+        month === "january" ||
+        month === "march" ||
+        month === "may" ||
+        month === "july" ||
+        month === "august" ||
+        month === "october" ||
+        month === "december"
+      ) {
+        alert(`${month} has 31 days.`);
+      } else if (
+        month === "april" ||
+        month === "june" ||
+        month === "september" ||
+        month === "november"
+      ) {
+        alert(`${month} has 30 days.`);
+      } else {
+        alert(`${month} has 29 days`);
+      }
+    </script>
+  </body>
+</html>
