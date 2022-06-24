@@ -1,57 +1,42 @@
-function convertRgbToHex(rgbArray) {
-  const hexaBase = [
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-  ];
-  let red = "";
-  let green = "";
-  let blue = "";
-  const hexValues = [red, green, blue];
+function convertRgbToHex() {
+  // can convert only in range (0, 255) inclusively
+  function convertDecimalToHex(decimal) {
+    const divisor = 16;
+    let dividend = decimal;
+    let quotient = Math.trunc(dividend / divisor);
+    let reminder = dividend % divisor;
+    const hexNums = [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+    ];
 
-  for (let x = 0; x < rgbArray.length; x++) {
-    let element = rgbArray[x];
-    if (element > 255) return "Invalid rgb sequence";
-    if (element < 16) {
-      switch (x) {
-        case 0:
-          red = "0" + element.toString();
-          break;
+    let hexFactors = [];
+    hexFactors.push(quotient);
+    hexFactors.push(reminder);
 
-        case 1:
-          green = "0" + element.toString();
-          break;
-
-        case 2:
-          blue = "0" + element.toString();
-          break;
-      }
-    }
-
-    const hexFactors = [];
-    let reminder = element;
-    while (reminder % 16 >= 16) {
-      hexFactors.push(Math.trunc(element / 16));
-      hexFactors.push(element % 16);
-      reminder %= Math.trunc(element / 16);
-      console.log(hexFactors);
-    }
+    return `${hexNums[quotient]}${hexNums[reminder]}`;
   }
 
-  //return hexValues;
+  let result = "#";
+  for (let element of arguments) {
+    result += convertDecimalToHex(element);
+  }
+
+  return result;
 }
 
-console.log(convertRgbToHex([155, 100, 5]));
+console.log(convertRgbToHex(198, 56, 125));

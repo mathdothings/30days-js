@@ -1,4 +1,4 @@
-function rndsixHex() {
+function rndSixHex() {
   const hexValues = [
     "0",
     "1",
@@ -28,4 +28,4 @@ function rndsixHex() {
   return sixHex;
 }
 
-console.log(rndsixHex());
+console.log(rndSixHex());
