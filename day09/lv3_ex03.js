@@ -1,109 +1,5 @@
 const countries = [
   {
-    name: "United Arab Emirates",
-    capital: "Abu Dhabi",
-    languages: ["Arabic"],
-    population: 9856000,
-    flag: "https://restcountries.eu/data/are.svg",
-    currency: "United Arab Emirates dirham",
-  },
-  {
-    name: "United Kingdom of Great Britain and Northern Ireland",
-    capital: "London",
-    languages: ["English"],
-    population: 65110000,
-    flag: "https://restcountries.eu/data/gbr.svg",
-    currency: "British pound",
-  },
-  {
-    name: "United States of America",
-    capital: "Washington, D.C.",
-    languages: ["English"],
-    population: 323947000,
-    flag: "https://restcountries.eu/data/usa.svg",
-    currency: "United States dollar",
-  },
-  {
-    name: "Uruguay",
-    capital: "Montevideo",
-    languages: ["Spanish"],
-    population: 3480222,
-    flag: "https://restcountries.eu/data/ury.svg",
-    currency: "Uruguayan peso",
-  },
-  {
-    name: "Uzbekistan",
-    capital: "Tashkent",
-    languages: ["Uzbek", "Russian"],
-    population: 31576400,
-    flag: "https://restcountries.eu/data/uzb.svg",
-    currency: "Uzbekistani so'm",
-  },
-  {
-    name: "Vanuatu",
-    capital: "Port Vila",
-    languages: ["Bislama", "English", "French"],
-    population: 277500,
-    flag: "https://restcountries.eu/data/vut.svg",
-    currency: "Vanuatu vatu",
-  },
-  {
-    name: "Venezuela (Bolivarian Republic of)",
-    capital: "Caracas",
-    languages: ["Spanish"],
-    population: 31028700,
-    flag: "https://restcountries.eu/data/ven.svg",
-    currency: "Venezuelan bolívar",
-  },
-  {
-    name: "Viet Nam",
-    capital: "Hanoi",
-    languages: ["Vietnamese"],
-    population: 92700000,
-    flag: "https://restcountries.eu/data/vnm.svg",
-    currency: "Vietnamese đồng",
-  },
-  {
-    name: "Wallis and Futuna",
-    capital: "Mata-Utu",
-    languages: ["French"],
-    population: 11750,
-    flag: "https://restcountries.eu/data/wlf.svg",
-    currency: "CFP franc",
-  },
-  {
-    name: "Western Sahara",
-    capital: "El Aaiún",
-    languages: ["Spanish"],
-    population: 510713,
-    flag: "https://restcountries.eu/data/esh.svg",
-    currency: "Moroccan dirham",
-  },
-  {
-    name: "Yemen",
-    capital: "Sana'a",
-    languages: ["Arabic"],
-    population: 27478000,
-    flag: "https://restcountries.eu/data/yem.svg",
-    currency: "Yemeni rial",
-  },
-  {
-    name: "Zambia",
-    capital: "Lusaka",
-    languages: ["English"],
-    population: 15933883,
-    flag: "https://restcountries.eu/data/zmb.svg",
-    currency: "Zambian kwacha",
-  },
-  {
-    name: "Zimbabwe",
-    capital: "Harare",
-    languages: ["English", "Shona", "Northern Ndebele"],
-    population: 14240168,
-    flag: "https://restcountries.eu/data/zwe.svg",
-    currency: "Botswana pula",
-  },
-  {
     name: "Afghanistan",
     capital: "Kabul",
     languages: ["Pashto", "Uzbek", "Turkmen"],
@@ -2010,77 +1906,126 @@ const countries = [
     flag: "https://restcountries.eu/data/ukr.svg",
     currency: "Ukrainian hryvnia",
   },
+  {
+    name: "United Arab Emirates",
+    capital: "Abu Dhabi",
+    languages: ["Arabic"],
+    population: 9856000,
+    flag: "https://restcountries.eu/data/are.svg",
+    currency: "United Arab Emirates dirham",
+  },
+  {
+    name: "United Kingdom of Great Britain and Northern Ireland",
+    capital: "London",
+    languages: ["English"],
+    population: 65110000,
+    flag: "https://restcountries.eu/data/gbr.svg",
+    currency: "British pound",
+  },
+  {
+    name: "United States of America",
+    capital: "Washington, D.C.",
+    languages: ["English"],
+    population: 323947000,
+    flag: "https://restcountries.eu/data/usa.svg",
+    currency: "United States dollar",
+  },
+  {
+    name: "Uruguay",
+    capital: "Montevideo",
+    languages: ["Spanish"],
+    population: 3480222,
+    flag: "https://restcountries.eu/data/ury.svg",
+    currency: "Uruguayan peso",
+  },
+  {
+    name: "Uzbekistan",
+    capital: "Tashkent",
+    languages: ["Uzbek", "Russian"],
+    population: 31576400,
+    flag: "https://restcountries.eu/data/uzb.svg",
+    currency: "Uzbekistani so'm",
+  },
+  {
+    name: "Vanuatu",
+    capital: "Port Vila",
+    languages: ["Bislama", "English", "French"],
+    population: 277500,
+    flag: "https://restcountries.eu/data/vut.svg",
+    currency: "Vanuatu vatu",
+  },
+  {
+    name: "Venezuela (Bolivarian Republic of)",
+    capital: "Caracas",
+    languages: ["Spanish"],
+    population: 31028700,
+    flag: "https://restcountries.eu/data/ven.svg",
+    currency: "Venezuelan bolívar",
+  },
+  {
+    name: "Viet Nam",
+    capital: "Hanoi",
+    languages: ["Vietnamese"],
+    population: 92700000,
+    flag: "https://restcountries.eu/data/vnm.svg",
+    currency: "Vietnamese đồng",
+  },
+  {
+    name: "Wallis and Futuna",
+    capital: "Mata-Utu",
+    languages: ["French"],
+    population: 11750,
+    flag: "https://restcountries.eu/data/wlf.svg",
+    currency: "CFP franc",
+  },
+  {
+    name: "Western Sahara",
+    capital: "El Aaiún",
+    languages: ["Spanish"],
+    population: 510713,
+    flag: "https://restcountries.eu/data/esh.svg",
+    currency: "Moroccan dirham",
+  },
+  {
+    name: "Yemen",
+    capital: "Sana'a",
+    languages: ["Arabic"],
+    population: 27478000,
+    flag: "https://restcountries.eu/data/yem.svg",
+    currency: "Yemeni rial",
+  },
+  {
+    name: "Zambia",
+    capital: "Lusaka",
+    languages: ["English"],
+    population: 15933883,
+    flag: "https://restcountries.eu/data/zmb.svg",
+    currency: "Zambian kwacha",
+  },
+  {
+    name: "Zimbabwe",
+    capital: "Harare",
+    languages: ["English", "Shona", "Northern Ndebele"],
+    population: 14240168,
+    flag: "https://restcountries.eu/data/zwe.svg",
+    currency: "Botswana pula",
+  },
 ];
 
-// by name / capital / population
+// i want a final result like this: {country: 'name', population: x}
+function mostPopulatedCountries(arr, amout) {
+  const mostPopList = arr;
+  mostPopList.sort((prev, curr) => {
+    if (prev.population > curr.population) return -1;
+    if (prev.population < curr.population) return 1;
+    return 0;
+  });
 
-const countriesCopy = countries;
-
-const sortWithPattern = (array, pattern) => {
-  let result = [];
-
-  if (pattern === "name") {
-    function sortCountriesByName() {
-      const names = [];
-      const sortedByNames = [];
-      array.forEach((country) => names.push(country["name"]));
-      names.sort(); // this will aplhabetically sort all countries names
-
-      names.forEach((countryName) => {
-        array.forEach((country) => {
-          if (countryName === country["name"]) {
-            sortedByNames.push(country);
-          }
-        });
-      });
-
-      return sortedByNames;
-    }
-    result = sortCountriesByName();
+  const mostPop = [];
+  for (let x = 0; x < amout; x++) {
+    mostPop.push(mostPopList[x]);
   }
+  return mostPop;
+}
 
-  if (pattern === "capital") {
-    function sortCountriesByCapital() {
-      const capitals = [];
-      const sortedByCapitals = [];
-      array.forEach((country) => capitals.push(country["capital"]));
-      capitals.sort(); // this will aplhabetically sort all capitals names
-
-      capitals.forEach((capitalName, index) => {
-        array.forEach((country) => {
-          if (capitalName !== "" && capitalName === country["capital"]) {
-            sortedByCapitals.push(country);
-          } else if (
-            index === 0 &&
-            capitalName === "" &&
-            capitalName === country["capital"]
-          ) {
-            sortedByCapitals.push(country);
-          }
-        });
-      });
-
-      return sortedByCapitals;
-    }
-    result = sortCountriesByCapital();
-  }
-
-  if (pattern === "population") {
-    function sortCountriesByPopulation() {
-      const populations = array;
-      let sortedByPopulation = [];
-      sortedByPopulation = populations.sort((prev, curr) => {
-        if (prev["population"] < curr["population"]) return -1;
-        if (prev["population"] > curr["population"]) return 1;
-        return 0;
-      });
-
-      return sortedByPopulation;
-    }
-    result = sortCountriesByPopulation();
-  }
-
-  return result;
-};
-
-console.log(sortWithPattern(countries, "population"));
+console.log(mostPopulatedCountries(countries, 3));

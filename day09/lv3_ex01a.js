@@ -1,5 +1,61 @@
 const countries = [
   {
+    name: "Tunisia",
+    capital: "Tunis",
+    languages: ["Arabic"],
+    population: 11154400,
+    flag: "https://restcountries.eu/data/tun.svg",
+    currency: "Tunisian dinar",
+  },
+  {
+    name: "Turkey",
+    capital: "Ankara",
+    languages: ["Turkish"],
+    population: 78741053,
+    flag: "https://restcountries.eu/data/tur.svg",
+    currency: "Turkish lira",
+  },
+  {
+    name: "Turkmenistan",
+    capital: "Ashgabat",
+    languages: ["Turkmen", "Russian"],
+    population: 4751120,
+    flag: "https://restcountries.eu/data/tkm.svg",
+    currency: "Turkmenistan manat",
+  },
+  {
+    name: "Turks and Caicos Islands",
+    capital: "Cockburn Town",
+    languages: ["English"],
+    population: 31458,
+    flag: "https://restcountries.eu/data/tca.svg",
+    currency: "United States dollar",
+  },
+  {
+    name: "Tuvalu",
+    capital: "Funafuti",
+    languages: ["English"],
+    population: 10640,
+    flag: "https://restcountries.eu/data/tuv.svg",
+    currency: "Australian dollar",
+  },
+  {
+    name: "Uganda",
+    capital: "Kampala",
+    languages: ["English", "Swahili"],
+    population: 33860700,
+    flag: "https://restcountries.eu/data/uga.svg",
+    currency: "Ugandan shilling",
+  },
+  {
+    name: "Ukraine",
+    capital: "Kiev",
+    languages: ["Ukrainian"],
+    population: 42692393,
+    flag: "https://restcountries.eu/data/ukr.svg",
+    currency: "Ukrainian hryvnia",
+  },
+  {
     name: "United Arab Emirates",
     capital: "Abu Dhabi",
     languages: ["Arabic"],
@@ -1954,133 +2010,15 @@ const countries = [
     flag: "https://restcountries.eu/data/tto.svg",
     currency: "Trinidad and Tobago dollar",
   },
-  {
-    name: "Tunisia",
-    capital: "Tunis",
-    languages: ["Arabic"],
-    population: 11154400,
-    flag: "https://restcountries.eu/data/tun.svg",
-    currency: "Tunisian dinar",
-  },
-  {
-    name: "Turkey",
-    capital: "Ankara",
-    languages: ["Turkish"],
-    population: 78741053,
-    flag: "https://restcountries.eu/data/tur.svg",
-    currency: "Turkish lira",
-  },
-  {
-    name: "Turkmenistan",
-    capital: "Ashgabat",
-    languages: ["Turkmen", "Russian"],
-    population: 4751120,
-    flag: "https://restcountries.eu/data/tkm.svg",
-    currency: "Turkmenistan manat",
-  },
-  {
-    name: "Turks and Caicos Islands",
-    capital: "Cockburn Town",
-    languages: ["English"],
-    population: 31458,
-    flag: "https://restcountries.eu/data/tca.svg",
-    currency: "United States dollar",
-  },
-  {
-    name: "Tuvalu",
-    capital: "Funafuti",
-    languages: ["English"],
-    population: 10640,
-    flag: "https://restcountries.eu/data/tuv.svg",
-    currency: "Australian dollar",
-  },
-  {
-    name: "Uganda",
-    capital: "Kampala",
-    languages: ["English", "Swahili"],
-    population: 33860700,
-    flag: "https://restcountries.eu/data/uga.svg",
-    currency: "Ugandan shilling",
-  },
-  {
-    name: "Ukraine",
-    capital: "Kiev",
-    languages: ["Ukrainian"],
-    population: 42692393,
-    flag: "https://restcountries.eu/data/ukr.svg",
-    currency: "Ukrainian hryvnia",
-  },
 ];
 
-// by name / capital / population
-
-const countriesCopy = countries;
-
-const sortWithPattern = (array, pattern) => {
-  let result = [];
-
-  if (pattern === "name") {
-    function sortCountriesByName() {
-      const names = [];
-      const sortedByNames = [];
-      array.forEach((country) => names.push(country["name"]));
-      names.sort(); // this will aplhabetically sort all countries names
-
-      names.forEach((countryName) => {
-        array.forEach((country) => {
-          if (countryName === country["name"]) {
-            sortedByNames.push(country);
-          }
-        });
-      });
-
-      return sortedByNames;
-    }
-    result = sortCountriesByName();
-  }
-
-  if (pattern === "capital") {
-    function sortCountriesByCapital() {
-      const capitals = [];
-      const sortedByCapitals = [];
-      array.forEach((country) => capitals.push(country["capital"]));
-      capitals.sort(); // this will aplhabetically sort all capitals names
-
-      capitals.forEach((capitalName, index) => {
-        array.forEach((country) => {
-          if (capitalName !== "" && capitalName === country["capital"]) {
-            sortedByCapitals.push(country);
-          } else if (
-            index === 0 &&
-            capitalName === "" &&
-            capitalName === country["capital"]
-          ) {
-            sortedByCapitals.push(country);
-          }
-        });
-      });
-
-      return sortedByCapitals;
-    }
-    result = sortCountriesByCapital();
-  }
-
-  if (pattern === "population") {
-    function sortCountriesByPopulation() {
-      const populations = array;
-      let sortedByPopulation = [];
-      sortedByPopulation = populations.sort((prev, curr) => {
-        if (prev["population"] < curr["population"]) return -1;
-        if (prev["population"] > curr["population"]) return 1;
-        return 0;
-      });
-
-      return sortedByPopulation;
-    }
-    result = sortCountriesByPopulation();
-  }
-
+function sortByName(countries) {
+  const result = countries.sort((prev, curr) => {
+    if (prev["name"] < curr["name"]) return -1;
+    if (prev["name"] > curr["name"]) return 1;
+    return 0;
+  });
   return result;
-};
+}
 
-console.log(sortWithPattern(countries, "population"));
+console.log(sortByName(countries));
