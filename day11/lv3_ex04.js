@@ -16,11 +16,21 @@ const student = {
     dataScience: ["Python", "R", "D3.js"],
   },
 };
-console.log(student);
 
-const newStudent = Object.assign({}, student);
-newStudent.skills.frontEnd.push({ skill: "BootStrap", level: 8 });
-newStudent.skills.backEnd.push({ skill: "Express", level: 9 });
-newStudent.skills.dataBase.push({ skill: "SQL", level: 8 });
-newStudent.skills.dataScience.push("SQL");
-console.log(newStudent);
+const changeStudent = (studentData) => {
+  const { name, age, skills } = studentData;
+  const obj = {
+    name,
+    age,
+    // ...skills,
+    dataScience: [...skills.dataScience, "SQL"],
+    frontEnd: [...skills.frontEnd, { skill: "BootStrap", level: 8 }],
+    backEnd: [...skills.backEnd, { skill: "Express", level: 9 }],
+    dataBase: [...skills.dataBase, { skill: "SQL", level: 8 }],
+  };
+
+  return obj;
+};
+
+console.log(changeStudent(student));
+console.log(student);
