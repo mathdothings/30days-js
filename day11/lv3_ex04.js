@@ -22,7 +22,7 @@ const changeStudent = (studentData) => {
   const obj = {
     name,
     age,
-    // ...skills,
+    ...skills,
     dataScience: [...skills.dataScience, "SQL"],
     frontEnd: [...skills.frontEnd, { skill: "BootStrap", level: 8 }],
     backEnd: [...skills.backEnd, { skill: "Express", level: 9 }],
