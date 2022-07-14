@@ -19,6 +19,10 @@ class Animal {
     return this.legs;
   }
 
+  get getAnimalType() {
+    return this.type;
+  }
+
   get getAnimalInfo() {
     const animalInfo = [this.name, this.age, this.color, this.legs];
     return animalInfo;
@@ -29,18 +33,10 @@ class Animal {
   }
 }
 
-class Cat extends Animal {
-  constructor(name, age, color, legs, type = "cat") {
+class Cow extends Animal {
+  constructor(name, age, color, legs, type = "cow") {
     super(name, age, color, legs);
     this.type = type;
-  }
-
-  meaw() {
-    return "Meaw! Meaw!";
-  }
-
-  get getAnimalType() {
-    return this.type;
   }
 
   get getAnimalInfo() {
@@ -52,43 +48,15 @@ class Cat extends Animal {
       this.getAnimalLegs,
       this.getAnimalType
     );
+
     return animalInfo;
+  }
+
+  muuuh() {
+    return "Muuuuuh!";
   }
 }
 
-const cat = new Cat("Fat", 10, "grey", 4);
-console.log(cat);
-console.log(cat.meaw());
-console.log(cat.getAnimalInfo);
-
-class Dog extends Animal {
-  constructor(name, age, color, legs, type = "dog") {
-    super(name, age, color, legs);
-    this.type = type;
-  }
-
-  hulgh() {
-    return "Hulgh, Hulgh!";
-  }
-
-  get getAnimalType() {
-    return this.type;
-  }
-
-  get getAnimalInfo() {
-    const animalInfo = [];
-    animalInfo.push(
-      this.getAnimalName,
-      this.getAnimalAge,
-      this.getAnimalColor,
-      this.getAnimalLegs,
-      this.getAnimalType
-    );
-    return animalInfo;
-  }
-}
-
-const dog = new Dog("Lion", 5, "yellow", 4);
-console.log(dog);
-console.log(dog.hulgh());
-console.log(dog.getAnimalInfo);
+const cow = new Cow("White", 20, "black", 4);
+console.log(cow.getAnimalInfo);
+console.log(cow.muuuh());
