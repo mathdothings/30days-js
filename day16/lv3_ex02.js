@@ -122,4 +122,13 @@ const whoHasManySkills = (array) => {
 };
 
 const dest = destructuring(obj);
-console.log(whoHasManySkills(dest));
+// console.log(whoHasManySkills(dest));
+
+const hasManySkills = ({ name, skills }) => {
+  const count = skills.length;
+  return [name, count];
+};
+
+const x = [];
+dest.forEach((person) => x.push(hasManySkills(person)));
+// console.log(x);
