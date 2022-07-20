@@ -58,7 +58,7 @@ function personAccout() {
   return {
     accountInfo: accountInfo(),
     totalIncome: totalIncome(),
-    totalExpense: totalExpense,
+    totalExpense: totalExpense(),
     accountBalace: accountBalace(),
   };
 }
