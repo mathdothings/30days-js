@@ -1,6 +1,9 @@
 // const allTitles = document.getElementsByTagName("h1");
 // const allTitles = document.getElementsByClassName("title");
 
+
+ 
+
 const allTitles = document.getElementsByTagName("h1");
 const titles = document.querySelectorAll("h1");
 
