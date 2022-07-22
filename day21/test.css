@@ -1,0 +1,15 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.red {
+  background-color: green;
+}
+
+.green {
+  background-color: red;
+}
+
+.hide {
+  display: none;
+}
