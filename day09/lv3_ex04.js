@@ -93,7 +93,7 @@ const statistics = {
       `Range: ${this.range()}\n` +
       `Mean: ${this.mean()}\n` +
       `Median: ${this.median()}\n` +
-      `Mode: {mode: ${this.mode().mode}, count: ${this.mode().count}}\n` +
+      `Mode: {${Object.entries(this.mode())}}\n` +
       `Variance: ${this.variance()}\n` +
       `Standard Deviation: ${this.std()}`
     );
