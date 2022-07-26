@@ -25,8 +25,6 @@ const firstTitle = document.querySelectorAll("#first-title"); // select id with 
 
 const first = document.querySelector("#first-title");
 
-// console.log(first);
-
 for (const item of allTitles) {
   console.log(item); // catch all elements of that node list
 }
