@@ -17,7 +17,6 @@ const countTotalOfficialLanguages = async () => {
       if (language.name !== "") count += 1;
     });
   });
-
   return count;
 };
 
