@@ -9,8 +9,6 @@ const student = {
   enrolledKeys: ["react", "express", "node"],
 };
 
-const { firstName, lastName, age, country, skills, enrolledKeys } = student;
-
 localStorage.setItem("firstName", firstName);
 localStorage.setItem("lastName", lastName);
 localStorage.setItem("age", age);
