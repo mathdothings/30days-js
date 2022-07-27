@@ -3,11 +3,13 @@
 <html lang="en">
   <head>
     <title>JavaScript for Everyone:DOM</title>
+    <script src="./lv3_ex01.js" defer></script>
   </head>
   <body>
-    <div class="wrapper">
-      <h1>Asabeneh Yetayeh challenges in 2020</h1>
+    <div class="wrapper text-center">
+      <h1>Asabeneh Yetayeh challenges in <span id="year">2020</span></h1>
       <h2>30DaysOfJavaScript Challenge</h2>
+      <h3>Date</h3>
       <ul>
         <li>30DaysOfPython Challenge Done</li>
         <li>30DaysOfJavaScript Challenge Ongoing</li>
@@ -18,5 +20,55 @@
         <li>30DaysOfMachineLearning Challenge Coming</li>
       </ul>
     </div>
+
+    <style>
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #282828;
+        color: white;
+      }
+
+      .wrapper {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .text-center {
+        text-align: center;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      h2 {
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      h3 {
+        width: fit-content;
+        margin: 2rem auto;
+        padding: 0.5rem 5rem;
+        background-color: gray;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 0.25rem;
+        font-size: 1.25rem;
+        padding: 1rem;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 900;
+        border-radius: 10px;
+      }
+    </style>
   </body>
 </html>
