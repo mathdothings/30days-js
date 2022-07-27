@@ -1,11 +1,11 @@
 const titleYear = document.querySelector("#year");
+const yearNow = new Date().getFullYear();
 const h1Element = document.querySelector("h1");
 const h2Element = document.querySelector("h2");
 const dateElement = document.querySelector("h3");
 const listItems = document.querySelectorAll("li");
 const delay = 1000; // dalay in mileseconds (ms)
-titleYear.style.fontSize = "5rem";
-h2Element.style.textDecoration = "underline";
+titleYear.textContent = yearNow;
 dateElement.textContent = dateNow();
 
 function randomRGB() {
@@ -39,7 +39,7 @@ setInterval(() => {
 
 setInterval(() => {
   dateElement.textContent = dateNow();
-}, delay * 60);
+}, delay * 60); // update date every minute
 
 listItems.forEach((item) => {
   if (item.textContent.includes("Done")) {
