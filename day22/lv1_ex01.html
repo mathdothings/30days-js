@@ -7,24 +7,47 @@
   </head>
   <body>
     <script>
-      // const fragment = document.createDccumentFragment();
-      // const ul = fragment.appendChild(document.createElement("ul"));
-      // const li = ul.appendChild(document.createElement("li"));
-      // li.textContent = "Hello, World!";
-
-      // document.body.appendChild(fragment);
       const ITEMS_AMOUNT = 102;
-
-      const ul = document.createElement("ul");
-      document.body.appendChild(ul);
-
+      document.body.appendChild(document.createElement("ul"));
       const ulSelected = document.querySelector("ul");
-      console.log(ulSelected);
-      // console.log(ulSelected);
-      const li = document.createElement("li");
-      li.style.fontSize = "30px";
-      li.textContent = "Hello, World!";
-      ulSelected.appendChild(li);
+      ulSelected.style.marginLeft = 0;
+
+      const GREEN = "#67cf47"; // even
+      const YELLOW = "#efff79"; // odd
+      const RED = "#ec5252"; // prime
+
+      for (let x = 0; x <= ITEMS_AMOUNT; x += 1) {
+        const li = document.createElement("li");
+        li.textContent = x;
+        li.style.fontSize = "30px";
+        li.style.listStyle = "none";
+        if (x % 2 === 0) {
+          li.style.backgroundColor = GREEN;
+        } else {
+          li.style.backgroundColor = YELLOW;
+        }
+
+        if (isPrime(x)) {
+          li.style.backgroundColor = RED;
+        }
+
+        li.style.textAlign = "center";
+        li.style.padding = "10px";
+        li.style.margin = "7px";
+        ulSelected.appendChild(li);
+      }
+
+      function isPrime(number) {
+        let divisors = 0;
+        for (let x = 1; x <= number; x += 1) {
+          if (number % x === 0) {
+            divisors += 1;
+          }
+        }
+
+        if (divisors <= 2 && number > 0) return true;
+        return false;
+      }
     </script>
   </body>
 </html>
