@@ -7,7 +7,7 @@ const COUNTRIES_PER_ROW = 6;
 const MAX_ROWS = Math.round(countries.length / 6);
 
 function makeRows() {
-  countries.forEach((country, index) => {
+  countries.forEach((_country, index) => {
     if (index % COUNTRIES_PER_ROW === 0 && ulCounter <= MAX_ROWS) {
       const ul = document.createElement("ul");
       ul.id = ulCounter;
@@ -17,8 +17,13 @@ function makeRows() {
   });
 }
 
+const myObj = {
+  age: this.age,
+  name: this.name,
+}
+
 function insertCountries() {
-  countries.forEach((country, index) => {
+  countries.forEach((country, _index) => {
     if (countryCounter < COUNTRIES_PER_ROW) {
       const li = document.createElement("li");
       const ul = document.getElementById(`${rowCounter}`);
