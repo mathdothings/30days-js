@@ -17,11 +17,6 @@ function makeRows() {
   });
 }
 
-const myObj = {
-  age: this.age,
-  name: this.name,
-}
-
 function insertCountries() {
   countries.forEach((country, _index) => {
     if (countryCounter < COUNTRIES_PER_ROW) {
