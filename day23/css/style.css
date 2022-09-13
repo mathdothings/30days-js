@@ -1,0 +1,95 @@
+:root {
+  --red: #eb695b;
+  --green: #5bbc7a;
+  --yellow: #f7dc5c;
+}
+
+/* apply basic css reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+.container {
+  width: 90%;
+  margin: 1rem auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+main {
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+h1, h2, h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  color: var(--red);
+}
+
+h2 {
+  line-height: 1.35;
+}
+
+h3 {
+  color: var(--yellow)
+}
+
+label {
+  margin-right: 0.5rem;
+  font-size: 1.25rem;
+}
+
+input {
+  padding: 0.5rem;
+  margin: 0.5rem auto;
+  margin-right: 0.5rem;
+  font-size: 1rem;
+  border: 0.1rem solid gray;;
+}
+
+button {
+  cursor: pointer;
+  font-size: 1rem;
+  border: 0.1rem solid gray;
+  padding: 0.5rem;
+  font-family:'Courier New', Courier, monospace;
+  background-color: var(--red);
+}
+
+p {
+  font-size: 1.5rem;
+  display: block;
+  width: 10vw;
+  padding: 1rem;
+}
+
+button:hover {
+  background-color: var(--green);
+}
+
+#numbers-container {
+  margin-top: 1rem;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
