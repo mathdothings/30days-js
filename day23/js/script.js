@@ -44,7 +44,7 @@ function removeChilds() {
 }
 
 function generateNumbers(amount) {
-  removeChilds(); // remove all p inside numbers-container before generating
+  removeChilds(); // removes all p elements inside numbers-container, then generate again
   amount = getInputValue();
   for (let x = 0; x < amount; x++) {
     const n = document.createElement("p");
