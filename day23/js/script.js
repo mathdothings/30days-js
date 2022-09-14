@@ -22,20 +22,26 @@ function isEven(number) {
   return false;
 }
 
-function changeColor(element) {
+function changeColor(element, color) {
+  element.style.backgroundColor = color;
+}
+
+function analyzeNumber(element) {
   const content = element.textContent;
 
   if (isEven(content)) {
-    element.style.backgroundColor = GREEN;
+    changeColor(element, GREEN);
   }
 
   if (!isEven(content)) {
-    element.style.backgroundColor = YELLOW;
+    changeColor(element, YELLOW);
   }
 
   if (isPrime(content)) {
-    element.style.backgroundColor = RED;
+    changeColor(element, RED);
   }
+
+  return "Invalid number!";
 }
 
 function removeChilds() {
@@ -50,13 +56,12 @@ function generateNumbers(amount) {
     const n = document.createElement("p");
     numbersContainer.appendChild(n);
     n.textContent = x;
-    changeColor(n);
+    analyzeNumber(n);
   }
 }
 
 function getInputValue() {
   const input = document.querySelector("#input");
-  document.getElementById("input").innerHTML = input;
   // console.log(input.value);
   // just for debugging proporses
   return input.value;
