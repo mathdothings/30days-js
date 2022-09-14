@@ -40,8 +40,6 @@ function analyzeNumber(element) {
   if (isPrime(content)) {
     changeColor(element, RED);
   }
-
-  return "Invalid number!";
 }
 
 function removeChilds() {
