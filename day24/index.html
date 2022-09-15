@@ -5,13 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link type="text/css" rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <script defer src="./js/script.js"></script>
     <title>Day 24 - Planets and Objects Weight</title>
   </head>
   <body>
     <main class="container text-center">
       <section>
-        <h1>Calculate a weight of an object in a planet</h1>
+        <h1>Calculate the weight of an object in a planet</h1>
         <label for="weight-input">Object mass (kg): </label>
         <input
           autofocus
@@ -48,12 +54,13 @@
         <br />
         <button type="button">Calculate!</button>
 
-        <div>
+        <div class="img-container text-center">
           <img
             id="planet-img"
             src="https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png"
             alt=""
           />
+          <p id="result">Weight on Earth: 10N</p>
         </div>
       </section>
     </main>

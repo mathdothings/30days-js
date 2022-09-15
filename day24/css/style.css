@@ -5,16 +5,16 @@
 }
 
 html {
-  font-size: 20px;
+  font-size: 22px;
+  
 }
 
 body {
+  color: white;
+  font-family: 'Inconsolata', monospace;
   background-image: url("https://3.bp.blogspot.com/-CBkeyJkASJY/XFUltC8eOEI/AAAAAAAABz0/Dlf9jd3RMPQKSz_G63SgYDiC53NmYNdywCKgBGAs/w2880-h1800-c/night-sky-stars-scenery-landscape-21-4K.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
-  color: white;
-  font-family: 'Courier New', Courier, monospace;
 }
 
 .container {
@@ -32,6 +32,7 @@ h1 {
 
 fieldset {
   margin: 1rem auto 0 auto;
+  padding: 1rem;
 }
 
 legend {
@@ -74,4 +75,23 @@ button:hover {
 
 #weight-input:focus {
   outline-color: blueviolet;
+}
+
+img {
+  min-width: 15rem;
+  margin: 1rem auto;
+}
+
+.img-container {
+  display: flex;
+  flex-direction: column ;
+  align-items: center;
+}
+
+#result {
+  display: block;
+  background-color: blueviolet;
+  padding: 1rem;
+  width: fit-content;
+  border-radius: 10px;
 }

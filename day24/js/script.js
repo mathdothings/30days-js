@@ -26,13 +26,15 @@ const planets = [
   },
 ];
 
-const weightInput = document.querySelector("#weight-input");
+const massInput = document.querySelector("#weight-input");
 
 const planetInput = document.querySelectorAll("input[name='planet-input']");
 
 const calculateButton = document.querySelector("[type='button']");
 
 const planetImg = document.querySelector("#planet-img");
+
+const result = document.querySelector("#result");
 
 calculateButton.addEventListener("click", () => {
   planetInput.forEach((planet) => {
@@ -43,10 +45,9 @@ calculateButton.addEventListener("click", () => {
       for (const planet of planets) {
         if (planet.name === label.textContent) {
           // console.log(planet);
-          console.log(
-            `Weight in ${planet.name} =`,
-            weightInput.value * planet.gravity
-          );
+          result.textContent = `Weight on ${planet.name}: ${Math.round(
+            massInput.value * planet.gravity
+          )}N`;
           planetImg.src = planet.imgURL;
         }
       }
