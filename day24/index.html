@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="./css/style.css" />
+    <title>Day 24 - Planets and Objects Weight</title>
+  </head>
+  <body>
+    <main class="container text-center">
+      <section>
+        <h1>Calculate a weight of an object on a planet</h1>
+        <label for="weight-input">Object weight (kg): </label>
+        <input
+          required
+          type="number"
+          name="weight-input"
+          id="weight-input"
+          min="1"
+          max="999999"
+          value="1"
+          size="3"
+        />
+        <br />
+        <!-- planets = mercury venus earth mars -->
+        <fieldset>
+          <legend>Select a planet:</legend>
+          <input
+            checked
+            type="radio"
+            name="planet-input"
+            id="planet-input-earth"
+          />
+          <label for="planet-input-earth">Earth</label>
+
+          <input type="radio" name="planet-input" id="planet-input-mars" />
+          <label for="planet-input-mars">Mars</label>
+
+          <input type="radio" name="planet-input" id="planet-input-mercury" />
+          <label for="planet-input-mars">Mercury</label>
+
+          <input type="radio" name="planet-input" id="planet-input-venus" />
+          <label for="planet-input-venus">Venus</label>
+        </fieldset>
+
+        <br />
+        <button type="button">Calculate!</button>
+      </section>
+    </main>
+  </body>
+</html>
