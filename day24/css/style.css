@@ -9,11 +9,12 @@ html {
 }
 
 body {
-  /* background-image: url(); */
-  background-color: orange;
+  background-image: url("https://3.bp.blogspot.com/-CBkeyJkASJY/XFUltC8eOEI/AAAAAAAABz0/Dlf9jd3RMPQKSz_G63SgYDiC53NmYNdywCKgBGAs/w2880-h1800-c/night-sky-stars-scenery-landscape-21-4K.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .container {
@@ -43,4 +44,26 @@ input {
 
 button {
   margin-top: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1rem;
+  border: 5px solid darkgoldenrod;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  color:white;
+  background-color: darkmagenta;
+  border-color: black;
+}
+
+#weight-input {
+  padding: 0.5rem;
+  text-align: center;
+  color: darkmagenta;
+}
+
+#weight-input:focus {
+  outline-color: darkmagenta;
 }
