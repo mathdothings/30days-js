@@ -5,7 +5,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 body {
@@ -31,7 +31,11 @@ h1 {
 }
 
 fieldset {
-  margin-top: 1rem;
+  margin: 1rem auto 0 auto;
+}
+
+legend {
+  font-family: monospace;
 }
 
 label + input {
@@ -47,23 +51,27 @@ button {
   padding: 0.5rem 1rem;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1rem;
-  border: 5px solid darkgoldenrod;
+  border: 3px solid black;
   border-radius: 10px;
+  background-color: blueviolet;
+  color:white;
   cursor: pointer;
 }
 
 button:hover {
-  color:white;
-  background-color: darkmagenta;
-  border-color: black;
+  border-color: white;
+  background-color: darkslateblue;
 }
 
 #weight-input {
   padding: 0.5rem;
-  text-align: center;
-  color: darkmagenta;
+  text-align: left;
+  color: blueviolet;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-left: 0;
 }
 
 #weight-input:focus {
-  outline-color: darkmagenta;
+  outline-color: blueviolet;
 }

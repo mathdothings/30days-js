@@ -11,8 +11,8 @@
   <body>
     <main class="container text-center">
       <section>
-        <h1>Calculate a weight of an object on a planet</h1>
-        <label for="weight-input">Object weight (kg): </label>
+        <h1>Calculate a weight of an object in a planet</h1>
+        <label for="weight-input">Object mass (kg): </label>
         <input
           autofocus
           required
@@ -25,9 +25,8 @@
           size="3"
         />
         <br />
-        <!-- planets = mercury venus earth mars -->
         <fieldset>
-          <legend>Select a planet:</legend>
+          <legend>| Select a planet |</legend>
           <input
             checked
             type="radio"
@@ -40,7 +39,7 @@
           <label for="planet-input-mars">Mars</label>
 
           <input type="radio" name="planet-input" id="planet-input-mercury" />
-          <label for="planet-input-mars">Mercury</label>
+          <label for="planet-input-mercury">Mercury</label>
 
           <input type="radio" name="planet-input" id="planet-input-venus" />
           <label for="planet-input-venus">Venus</label>
@@ -48,6 +47,14 @@
 
         <br />
         <button type="button">Calculate!</button>
+
+        <div>
+          <img
+            id="planet-img"
+            src="https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png"
+            alt=""
+          />
+        </div>
       </section>
     </main>
   </body>
