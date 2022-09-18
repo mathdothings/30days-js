@@ -1,16 +1,53 @@
-const countries = countries_data;
+let data = [];
 
-countries.forEach((country) => {
-  const ul = document.createElement("ul");
-  document.body.appendChild(ul);
-  const li = document.createElement("li");
-  const img = document.createElement("img");
-  ul.appendChild(li);
-  li.appendChild(img);
-  img.src = country.flag;
-  img.style.display = "block";
-  img.style.width = "100px";
-  img.style.height = "100px";
-  img.style.borderRadius = "50%";
-  img.style.margin = "1rem auto";
-});
+const fetchData = async () => {
+  const url = "https://restcountries.com/v3.1/all";
+  try {
+    const response = await fetch(url);
+    const countries = await response.json();
+    data = countries;
+  } catch (e) {
+    console.error(e); // show the error
+  }
+};
+
+function getTotalAmountOfCountries() {
+  return data.length;
+}
+
+function sortAllCountiesByLanguage() {
+  const dataCopy = data;
+  // sort by language
+  dataCopy.sort((previous, current) => {
+    if (previous.languages < current.languages) return -1;
+    if (previous.languages < current.languages) return 1;
+  });
+
+  return dataCopy;
+}
+
+function sortCountiesByPopulation() {
+  const dataCopy = data;
+  // sort descending = highest to lowest
+  dataCopy.sort((previous, current) => {
+    if (previous.population < current.population) return 1;
+    if (previous.population > current.population) return -1;
+    return 0;
+  });
+
+  return dataCopy;
+}
+
+async function main() {
+  await fetchData();
+  console.log("Countries by population:");
+  console.log(sortCountiesByPopulation());
+
+  console.log("Counties by languages:");
+  console.log(sortCountiesByPopulation());
+
+  console.log("Total amount of countries:");
+  console.log(getTotalAmountOfCountries());
+}
+
+main();

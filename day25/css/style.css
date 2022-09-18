@@ -39,11 +39,11 @@ hr {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   font-weight: 100;
   font-style: italic;
 }
@@ -51,14 +51,14 @@ h2 {
 .row {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
 }
 
 button {
-  padding: 0.5rem 1rem;
-  font-size: 1.15rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
   background-color: var(--blue);
   color: white;
   cursor: pointer;
