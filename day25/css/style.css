@@ -1,7 +1,9 @@
 :root {
-  --red: #ce2d4f;
-  --soft-red: #ce6d8b;
-  --blue: #4056f4;
+  /* colors based on gruvbox theme */
+  --black: #3c3836;
+  --red: #cc241d;
+  --yellow: #d79921;
+  --blue: #076678;
 }
 * {
   margin: 0;
@@ -18,7 +20,6 @@ body {
 }
 
 main {
-  border: 1px solid var(--soft-red);
   margin: 1rem auto;
   width: fit-content;
 }
@@ -40,6 +41,7 @@ hr {
 
 h1 {
   font-size: 2rem;
+  color: var(--red);
 }
 
 h2 {
@@ -59,12 +61,41 @@ h2 {
 button {
   padding: 0.25rem 0.5rem;
   font-size: 0.85rem;
-  background-color: var(--blue);
   color: white;
   cursor: pointer;
+  background-color: var(--black);
 }
 
 button:hover {
-  background-color: var(--red);
-  color: black;
+  background-color: var(--yellow);
+  color: var(--blue);
+}
+
+ul {
+  margin-left: 0;
+  list-style: none;
+}
+
+div {
+  border: 1px solid var(--black);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 0.25rem;
+  padding: 0.5rem;
+}
+
+div:hover {
+  background-color: var(--yellow);
+  cursor: pointer;
+  transform: scale(1.05);
+  color: var(--blue);
+}
+
+.country-position {
+  background-color: var(--black);
+  width: 1.5rem;
+  height: 1.5rem;
+  color: white;
 }

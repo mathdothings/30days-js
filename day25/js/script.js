@@ -7,7 +7,8 @@ const fetchData = async () => {
     const countries = await response.json();
     data = countries;
   } catch (e) {
-    console.error(e); // show the error
+    // show the error
+    console.error(e);
   }
 };
 
@@ -38,16 +39,48 @@ function sortCountiesByPopulation() {
   return dataCopy;
 }
 
+const interactivlyInsertElements = () => {
+  const TOTAL_AMOUT_TO_INSERT = 10;
+  const totalCountriesAmout = document.querySelector(
+    "#total-amount-of-countries"
+  );
+  totalCountriesAmout.textContent = getTotalAmountOfCountries();
+  const filteredChoice = document.querySelector("#filtered-choice");
+  const countries = sortCountiesByPopulation();
+
+  countries.forEach((country, index = 0) => {
+    if (index < TOTAL_AMOUT_TO_INSERT) {
+      const countryInfoContainer = document.createElement("div");
+      const countryPosition = document.createElement("p");
+      const countryFlagAndName = document.createElement("p");
+      const countryPopulation = document.createElement("p");
+      filteredChoice.appendChild(countryInfoContainer);
+      countryInfoContainer.appendChild(countryPosition);
+      countryInfoContainer.appendChild(countryFlagAndName);
+      countryInfoContainer.appendChild(countryPopulation);
+      countryPosition.innerText = index + 1;
+      countryPosition.classList.add("country-position");
+      countryFlagAndName.innerText = `${country.flag} ${country.fifa}`;
+      countryPopulation.innerText = country.population;
+    }
+  });
+};
+
 async function main() {
   await fetchData();
-  console.log("Countries by population:");
-  console.log(sortCountiesByPopulation());
+  /*
+    console.log("Countries by population:");
+    console.log(sortCountiesByPopulation());
 
-  console.log("Counties by languages:");
-  console.log(sortCountiesByPopulation());
+    console.log("Counties by languages:");
+    console.log(sortCountiesByPopulation());
 
-  console.log("Total amount of countries:");
-  console.log(getTotalAmountOfCountries());
+    console.log("Total amount of countries:");
+    console.log(getTotalAmountOfCountries());
+
+    console.log("Interactivly change elements");
+  */
+  interactivlyInsertElements();
 }
 
 main();
