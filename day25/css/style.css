@@ -17,6 +17,7 @@ html {
 
 body {
   font-family: "Crimson Text", serif;
+  color: var(--black);
 }
 
 main {
@@ -68,7 +69,7 @@ button {
 
 button:hover {
   background-color: var(--yellow);
-  color: var(--blue);
+  color: var(--black);
 }
 
 ul {
@@ -89,8 +90,7 @@ div {
 div:hover {
   background-color: var(--yellow);
   cursor: pointer;
-  transform: scale(1.05);
-  color: var(--blue);
+  scale: 1.05;
 }
 
 .country-position {
