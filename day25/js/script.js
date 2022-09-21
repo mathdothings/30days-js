@@ -1,11 +1,11 @@
-let data = [];
+let apiData = [];
 
 const fetchData = async () => {
   const url = "https://restcountries.com/v3.1/all";
   try {
     const response = await fetch(url);
     const countries = await response.json();
-    data = countries;
+    apiData = countries;
   } catch (e) {
     // show the error
     console.error(e);
@@ -13,11 +13,11 @@ const fetchData = async () => {
 };
 
 function getTotalAmountOfCountries() {
-  return data.length;
+  return apiData.length;
 }
 
 function sortAllCountiesByLanguage() {
-  const dataCopy = data;
+  const dataCopy = apiData;
   // sort by language
   dataCopy.sort((previous, current) => {
     if (previous.languages < current.languages) return -1;
@@ -27,8 +27,38 @@ function sortAllCountiesByLanguage() {
   return dataCopy;
 }
 
+function getTotalAmountOfLanguages() {
+  const uniqueLanguages = [];
+  const totalAmountOfLanguages = [];
+  const dataCopy = apiData;
+  apiData.forEach((country) => {
+    for (const language in country.languages) {
+      let languageName = country.languages[language];
+      if (!uniqueLanguages.includes(languageName)) {
+        totalAmountOfLanguages.push({
+          languageName,
+          amount: 0,
+        });
+        uniqueLanguages.push(country.languages[language]);
+      }
+
+      if (uniqueLanguages.includes(languageName)) {
+        for (const item of totalAmountOfLanguages) {
+          if (item.languageName === languageName) {
+            item.amount += 1;
+          }
+        }
+      }
+    }
+  });
+
+  // console.log(uniqueLanguages);
+  console.log(totalAmountOfLanguages);
+  return totalAmountOfLanguages;
+}
+
 function sortCountiesByPopulation() {
-  const dataCopy = data;
+  const dataCopy = apiData;
   // sort descending = highest to lowest
   dataCopy.sort((previous, current) => {
     if (previous.population < current.population) return 1;
@@ -79,19 +109,10 @@ const interactivlyInsertElements = () => {
 
 async function main() {
   await fetchData();
-  /*
-    console.log("Countries by population:");
-    console.log(sortCountiesByPopulation());
 
-    console.log("Counties by languages:");
-    console.log(sortCountiesByPopulation());
-
-    console.log("Total amount of countries:");
-    console.log(getTotalAmountOfCountries());
-
-    console.log("Interactivly change elements");
-  */
   console.clear();
+  console.log(apiData);
+  getTotalAmountOfLanguages();
   observeClickedButton();
   interactivlyInsertElements();
 }
