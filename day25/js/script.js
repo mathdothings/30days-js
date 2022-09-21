@@ -39,6 +39,17 @@ function sortCountiesByPopulation() {
   return dataCopy;
 }
 
+function observeClickedButton() {
+  const buttons = document.querySelectorAll("button");
+  buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const pointedElement = event.target.textContent.toLowerCase();
+      // console.log(pointedElement);
+      return pointedElement; // returns clicked button element
+    });
+  });
+}
+
 const interactivlyInsertElements = () => {
   const TOTAL_AMOUT_TO_INSERT = 10;
   const totalCountriesAmout = document.querySelector(
@@ -80,6 +91,8 @@ async function main() {
 
     console.log("Interactivly change elements");
   */
+  console.clear();
+  observeClickedButton();
   interactivlyInsertElements();
 }
 
