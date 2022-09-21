@@ -1,42 +1,35 @@
-let apiData = [];
+// ### global variables ###
+let APIDATA = [];
+const buttons = document.querySelectorAll("button");
 
+// ### data fetch ###
 const fetchData = async () => {
   const url = "https://restcountries.com/v3.1/all";
   try {
     const response = await fetch(url);
     const countries = await response.json();
-    apiData = countries;
+    APIDATA = countries;
   } catch (e) {
     // show the error
     console.error(e);
   }
 };
 
+// ### data handling ###
 function getTotalAmountOfCountries() {
-  return apiData.length;
-}
-
-function sortAllCountiesByLanguage() {
-  const dataCopy = apiData;
-  // sort by language
-  dataCopy.sort((previous, current) => {
-    if (previous.languages < current.languages) return -1;
-    if (previous.languages < current.languages) return 1;
-  });
-
-  return dataCopy;
+  return APIDATA.length;
 }
 
 function getTotalAmountOfLanguages() {
   const uniqueLanguages = [];
   const totalAmountOfLanguages = [];
-  const dataCopy = apiData;
-  apiData.forEach((country) => {
+  const dataCopy = APIDATA;
+  APIDATA.forEach((country) => {
     for (const language in country.languages) {
       let languageName = country.languages[language];
       if (!uniqueLanguages.includes(languageName)) {
         totalAmountOfLanguages.push({
-          languageName,
+          language: languageName,
           amount: 0,
         });
         uniqueLanguages.push(country.languages[language]);
@@ -44,7 +37,7 @@ function getTotalAmountOfLanguages() {
 
       if (uniqueLanguages.includes(languageName)) {
         for (const item of totalAmountOfLanguages) {
-          if (item.languageName === languageName) {
+          if (item.language === languageName) {
             item.amount += 1;
           }
         }
@@ -52,13 +45,24 @@ function getTotalAmountOfLanguages() {
     }
   });
 
-  // console.log(uniqueLanguages);
-  console.log(totalAmountOfLanguages);
   return totalAmountOfLanguages;
 }
 
+function sortAllLanguagesByAmount() {
+  const languages = getTotalAmountOfLanguages();
+
+  // sort by language ascending
+  const result = languages.sort((previous, current) => {
+    if (previous.amount < current.amount) return 1;
+    if (previous.amount > current.amount) return -1;
+    return 0;
+  });
+
+  return result;
+}
+
 function sortCountiesByPopulation() {
-  const dataCopy = apiData;
+  const dataCopy = APIDATA;
   // sort descending = highest to lowest
   dataCopy.sort((previous, current) => {
     if (previous.population < current.population) return 1;
@@ -69,17 +73,37 @@ function sortCountiesByPopulation() {
   return dataCopy;
 }
 
+// ### browser event handling ###
 function observeClickedButton() {
-  const buttons = document.querySelectorAll("button");
   buttons.forEach((button) => {
     button.addEventListener("click", (event) => {
-      const pointedElement = event.target.textContent.toLowerCase();
-      // console.log(pointedElement);
-      return pointedElement; // returns clicked button element
+      const pointedButton = event.target;
+      // console.log(pointedButton);
+      stylyzeClickedButton(pointedButton);
+      return pointedButton; // returns clicked button element
     });
   });
 }
 
+// ### redering handling ###
+function clearElement(element) {
+  element.innerHTML = "";
+}
+
+function resetHightlightedButton() {
+  buttons.forEach((button) => {
+    button.classList.remove("clicked-button");
+  });
+}
+
+function stylyzeClickedButton(button) {
+  resetHightlightedButton();
+  if (button !== undefined) {
+    button.classList.toggle("clicked-button");
+  }
+}
+
+// [TODO] -> REWRITE THIS FEATURE
 const interactivlyInsertElements = () => {
   const TOTAL_AMOUT_TO_INSERT = 10;
   const totalCountriesAmout = document.querySelector(
@@ -88,6 +112,8 @@ const interactivlyInsertElements = () => {
   totalCountriesAmout.textContent = getTotalAmountOfCountries();
   const filteredChoice = document.querySelector("#filtered-choice");
   const countries = sortCountiesByPopulation();
+
+  clearElement(filteredChoice);
 
   countries.forEach((country, index = 0) => {
     if (index < TOTAL_AMOUT_TO_INSERT) {
@@ -107,14 +133,24 @@ const interactivlyInsertElements = () => {
   });
 };
 
+// ### aplication start ###
 async function main() {
   await fetchData();
 
-  console.clear();
-  console.log(apiData);
-  getTotalAmountOfLanguages();
+  /* ### DEBUGGING ### */
+
+  // console.log(APIDATA);
+  // console.log(observeClickedButton())
+  // console.log(getTotalAmountOfLanguages());
+  // console.log(sortAllLanguagesByAmount());
+
+  /* ### DEBUGGING ### */
+
   observeClickedButton();
+  getTotalAmountOfLanguages();
   interactivlyInsertElements();
 }
+
+console.clear();
 
 main();

@@ -59,7 +59,7 @@ h2 {
   gap: 1rem;
 }
 
-button {
+.button {
   padding: 0.25rem 0.5rem;
   font-size: 0.85rem;
   color: white;
@@ -67,7 +67,7 @@ button {
   background-color: var(--black);
 }
 
-button:hover {
+.button:hover {
   background-color: var(--yellow);
   color: var(--black);
 }
@@ -98,4 +98,8 @@ div:hover {
   width: 1.5rem;
   height: 1.5rem;
   color: white;
+}
+
+.clicked-button {
+  background-color: var(--blue);
 }
