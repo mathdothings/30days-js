@@ -259,7 +259,7 @@ function renderLanguageChart() {
       labels: calculateMostSpokenLanguages(),
       datasets: [
         {
-          label: "based on total world most spoken languages",
+          label: "number of countries that speaks this language",
           data: calculateMostSpokenLanguagesAmouts(),
           backgroundColor: YELLOW,
           borderColor: YELLOW,
