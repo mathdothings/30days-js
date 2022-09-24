@@ -95,7 +95,7 @@ function getTenMostPopulatedCountriesByName() {
   const data = sortCountiesByPopulation();
 
   for (let x = 0; x < 10; x++) {
-    const countryName = data[x].name.common;
+    const countryName = data[x].fifa;
     const countryFlag = data[x].flag;
     namesAndFlags.push(`${countryName} ${countryFlag}`);
   }
@@ -225,6 +225,7 @@ function renderPopulationChart() {
       ],
     },
     options: {
+      maintainAspectRatio: false,
       events: ["mousemove", "mouseout", "touchstart", "touchmove"],
       layout: {
         padding: 0,
@@ -249,6 +250,7 @@ function renderPopulationChart() {
     },
   });
   Chart.defaults.font.size = 16;
+  chart.canvas.parentNode.style.height = "100vh";
   hasChart = true;
 }
 
@@ -260,7 +262,7 @@ function renderLanguageChart() {
       labels: calculateMostSpokenLanguages(),
       datasets: [
         {
-          label: "number of countries that speaks this language",
+          label: "# countries that speaks this language",
           data: calculateMostSpokenLanguagesAmouts(),
           backgroundColor: YELLOW,
           borderColor: YELLOW,
@@ -269,6 +271,7 @@ function renderLanguageChart() {
       ],
     },
     options: {
+      maintainAspectRatio: false,
       events: ["mousemove", "mouseout", "touchstart", "touchmove"],
       layout: {
         padding: 0,
@@ -293,6 +296,7 @@ function renderLanguageChart() {
     },
   });
   Chart.defaults.font.size = 16;
+  chart.canvas.parentNode.style.height = "100vh";
   hasChart = true;
 }
 
