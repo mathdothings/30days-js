@@ -248,6 +248,7 @@ function renderPopulationChart() {
       },
     },
   });
+  Chart.defaults.font.size = 16;
   hasChart = true;
 }
 
@@ -291,6 +292,7 @@ function renderLanguageChart() {
       },
     },
   });
+  Chart.defaults.font.size = 16;
   hasChart = true;
 }
 
