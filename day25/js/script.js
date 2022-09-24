@@ -1,6 +1,15 @@
 // ### global variables ###
 let APIDATA = [];
 const buttons = document.querySelectorAll("button");
+let renderPopulationChartControl = false;
+let renderLanguageChartControl = false;
+let hasChart = false;
+
+// ### colors ###
+const BLUE = "#076678";
+const YELLOW = "#d79921";
+const RED = "#cc241d";
+const BLACK = "#3c3836";
 
 // ### data fetch ###
 const fetchData = async () => {
@@ -23,7 +32,6 @@ function getTotalAmountOfCountries() {
 function getTotalAmountOfLanguages() {
   const uniqueLanguages = [];
   const totalAmountOfLanguages = [];
-  const dataCopy = APIDATA;
   APIDATA.forEach((country) => {
     for (const language in country.languages) {
       let languageName = country.languages[language];
@@ -73,14 +81,96 @@ function sortCountiesByPopulation() {
   return dataCopy;
 }
 
+function getTotalWorldPopulation() {
+  let population = 0;
+  APIDATA.forEach((country) => {
+    population += country.population;
+  });
+
+  return population;
+}
+
+function getTenMostPopulatedCountriesByName() {
+  const namesAndFlags = [];
+  const data = sortCountiesByPopulation();
+
+  for (let x = 0; x < 10; x++) {
+    const countryName = data[x].name.common;
+    const countryFlag = data[x].flag;
+    namesAndFlags.push(`${countryName} ${countryFlag}`);
+  }
+
+  return namesAndFlags;
+}
+
+function calculateWorldPercentPopulationPerContry() {
+  const percentages = [];
+  const totalPopulation = getTotalWorldPopulation();
+  let sum = 0;
+  const countries = sortCountiesByPopulation();
+  for (let x = 0; x < 10; x++) {
+    const countryPop = countries[x].population;
+    const calc = Math.floor((countryPop / totalPopulation) * 100);
+    percentages.push(calc);
+  }
+
+  return percentages;
+}
+
+function calculateMostSpokenLanguages() {
+  const languages = sortAllLanguagesByAmount();
+  const result = [];
+
+  for (let x = 0; x < 10; x++) {
+    const item = languages[x];
+    result.push(item.language);
+  }
+
+  return result;
+}
+
+function calculateMostSpokenLanguagesAmouts() {
+  const languages = sortAllLanguagesByAmount();
+  const result = [];
+
+  for (let x = 0; x < 10; x++) {
+    const item = languages[x];
+    result.push(item.amount);
+  }
+
+  return result;
+}
+
 // ### browser event handling ###
 function observeClickedButton() {
   buttons.forEach((button) => {
     button.addEventListener("click", (event) => {
       const pointedButton = event.target;
-      // console.log(pointedButton);
+
       stylyzeClickedButton(pointedButton);
-      return pointedButton; // returns clicked button element
+
+      if (pointedButton.textContent === "Population") {
+        if (renderPopulationChartControl) {
+          return;
+        } else {
+          removeChart();
+          renderPopulationChart();
+          renderPopulationChartControl = true;
+          renderLanguageChartControl = false;
+        }
+      }
+
+      if (pointedButton.textContent === "Language") {
+        if (renderLanguageChartControl) {
+          return;
+        } else {
+          removeChart();
+          renderLanguageChart();
+          renderLanguageChartControl = true;
+          renderPopulationChartControl = false;
+        }
+      }
+      // return pointedButton;
     });
   });
 }
@@ -103,35 +193,106 @@ function stylyzeClickedButton(button) {
   }
 }
 
-// [TODO] -> REWRITE THIS FEATURE
-const interactivlyInsertElements = () => {
-  const TOTAL_AMOUT_TO_INSERT = 10;
+function renderTotalAmountOfCountries() {
   const totalCountriesAmout = document.querySelector(
     "#total-amount-of-countries"
   );
   totalCountriesAmout.textContent = getTotalAmountOfCountries();
-  const filteredChoice = document.querySelector("#filtered-choice");
-  const countries = sortCountiesByPopulation();
+}
 
-  clearElement(filteredChoice);
+function removeChart() {
+  if (hasChart) {
+    const chart = Chart.getChart("chart-canvas");
+    chart.destroy();
+  }
+}
 
-  countries.forEach((country, index = 0) => {
-    if (index < TOTAL_AMOUT_TO_INSERT) {
-      const countryInfoContainer = document.createElement("div");
-      const countryPosition = document.createElement("p");
-      const countryFlagAndName = document.createElement("p");
-      const countryPopulation = document.createElement("p");
-      filteredChoice.appendChild(countryInfoContainer);
-      countryInfoContainer.appendChild(countryPosition);
-      countryInfoContainer.appendChild(countryFlagAndName);
-      countryInfoContainer.appendChild(countryPopulation);
-      countryPosition.innerText = index + 1;
-      countryPosition.classList.add("country-position");
-      countryFlagAndName.innerText = `${country.flag} ${country.fifa}`;
-      countryPopulation.innerText = country.population;
-    }
+// this will use chartjs
+function renderPopulationChart() {
+  const chartCanvas = document.getElementById("chart-canvas");
+  const chart = new Chart(chartCanvas, {
+    type: "bar",
+    data: {
+      labels: getTenMostPopulatedCountriesByName(),
+      datasets: [
+        {
+          label: "% based on total world population",
+          data: calculateWorldPercentPopulationPerContry(),
+          backgroundColor: YELLOW,
+          borderColor: YELLOW,
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      events: ["mousemove", "mouseout", "touchstart", "touchmove"],
+      layout: {
+        padding: 0,
+      },
+      barPercentage: 0.5,
+      categoryPercentage: 1,
+      indexAxis: "y",
+      offset: true,
+      scales: {
+        x: {
+          beginAtZero: true,
+          min: 0,
+          max: 25,
+        },
+        y: {
+          stacked: false,
+          ticks: {
+            autoSkip: false,
+          },
+        },
+      },
+    },
   });
-};
+  hasChart = true;
+}
+
+function renderLanguageChart() {
+  const chartCanvas = document.getElementById("chart-canvas");
+  const chart = new Chart(chartCanvas, {
+    type: "bar",
+    data: {
+      labels: calculateMostSpokenLanguages(),
+      datasets: [
+        {
+          label: "based on total world most spoken languages",
+          data: calculateMostSpokenLanguagesAmouts(),
+          backgroundColor: YELLOW,
+          borderColor: YELLOW,
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      events: ["mousemove", "mouseout", "touchstart", "touchmove"],
+      layout: {
+        padding: 0,
+      },
+      barPercentage: 0.5,
+      categoryPercentage: 1,
+      indexAxis: "y",
+      offset: true,
+      scales: {
+        x: {
+          beginAtZero: true,
+          min: 0,
+          max: 100,
+        },
+        y: {
+          stacked: false,
+          ticks: {
+            autoSkip: false,
+          },
+        },
+      },
+    },
+  });
+  hasChart = true;
+}
 
 // ### aplication start ###
 async function main() {
@@ -139,16 +300,10 @@ async function main() {
 
   /* ### DEBUGGING ### */
 
-  // console.log(APIDATA);
-  // console.log(observeClickedButton())
-  // console.log(getTotalAmountOfLanguages());
-  // console.log(sortAllLanguagesByAmount());
-
   /* ### DEBUGGING ### */
 
+  renderTotalAmountOfCountries();
   observeClickedButton();
-  getTotalAmountOfLanguages();
-  interactivlyInsertElements();
 }
 
 console.clear();

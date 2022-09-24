@@ -103,7 +103,3 @@ div:hover {
 .clicked-button {
   background-color: var(--blue);
 }
-
-#chart {
-  border: 1px solid red;
-}
