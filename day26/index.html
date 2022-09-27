@@ -5,7 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coutries Lister</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@400;600;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="./js/script.js"></script>
   </head>
-  <body></body>
+  <body>
+    <header class="header header--text-center">
+      <div class="header-container">
+        <h1 class="header__title">World Countries List</h1>
+        <h2 class="header__subtitle">
+          Total number of countries: <span class="header__amount">x</span>
+        </h2>
+        <h3 class="header__info">
+          Countries with <span class="header__info--filter-letter">x</span> are
+          <span class="header__info--filter-total-amount">y</span>
+        </h3>
+        <section class="nav-container">
+          <nav class="nav">
+            <button type="button" class="nav__option">Starting word</button>
+            <button type="button" class="nav__option">
+              Search with any word
+            </button>
+            <button type="button" class="nav__option">AZ</button>
+          </nav>
+        </section>
+        <section class="header__search-bar-container">
+          <input type="text" class="header__search-bar-input" /><button
+            class="header__search-bar-icon"
+            type="button"
+          >
+            <i data-feather="search"></i>
+          </button>
+        </section>
+      </div>
+    </header>
+    <script>
+      feather.replace();
+    </script>
+  </body>
 </html>

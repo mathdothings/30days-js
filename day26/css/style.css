@@ -7,3 +7,66 @@
 html {
   font-size: 16px;
 }
+
+body {
+  font-family: 'M PLUS 2', sans-serif;
+}
+
+.header {
+  background-image: url("./image/world-map.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.header-container {
+  width: 95%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header--text-center {
+  text-align: center;
+}
+
+.header__title, .header__subtitle, .header__info {
+  margin: 1rem;
+}
+
+.nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__option {
+  border-color: palevioletred;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.nav__option:hover, .nav__option:focus {
+  background-color: rebeccapurple;
+}
+
+.header__search-bar-container {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.header__search-bar-input {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.header__search-bar-icon {
+  border: none;
+  outline: none;
+}
