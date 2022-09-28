@@ -1,3 +1,11 @@
+:root {
+  --soft-red: #BA274A;
+  --soft-blue: #8CDEDC;
+  --red: #841C26;
+  --red-transp: #841C2655;
+  --blue: #2191FB;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,52 +13,65 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 body {
   font-family: 'M PLUS 2', sans-serif;
-}
-
-.header {
-  background-image: url("./image/world-map.jpg");
+  background-image: url("../image/world-map.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
 }
 
-.header-container {
+.container {
   width: 95%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
 }
 
-.header--text-center {
+.text-center {
   text-align: center;
 }
 
 .header__title, .header__subtitle, .header__info {
-  margin: 1rem;
+  background-color: rgba(0, 0, 0, 80%);
+  padding: 1rem 0.5rem;
+    color: var(--soft-red);
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+}
+
+.header__info {
+  margin-bottom: 1rem;
 }
 
 .nav {
   display: flex;
   gap: 0.5rem;
+  justify-content: center;
+}
+
+.nav__option-container {
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .nav__option {
-  border-color: palevioletred;
-  padding: 1rem;
+  border-color: var(--soft-red);
+  width: fit-content;
+  padding: 0.25rem 1rem;
   border-radius: 0.25rem;
   cursor: pointer;
   outline: none;
 }
 
 .nav__option:hover, .nav__option:focus {
-  background-color: rebeccapurple;
+  background-color: var(--blue);
+  border-color: var(--soft-red);
+  outline-color: var(--soft-red);
 }
 
 .header__search-bar-container {
@@ -64,6 +85,13 @@ body {
 .header__search-bar-input {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
+  text-transform: uppercase;
+}
+
+.header__search-bar-input:focus {
+  border-color: var(--soft-red);
+  outline-color: var(--soft-red);
+  color: var(--blue);
 }
 
 .header__search-bar-icon {
