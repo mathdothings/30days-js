@@ -300,7 +300,7 @@ function renderLanguageChart() {
   hasChart = true;
 }
 
-// ### aplication start ###
+// ### application start ###
 async function main() {
   await fetchData();
 

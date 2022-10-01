@@ -38,7 +38,7 @@ body {
 .header__title, .header__subtitle, .header__info {
   background-color: rgba(0, 0, 0, 80%);
   padding: 1rem 0.5rem;
-    color: var(--soft-red);
+  color: var(--soft-red);
   text-transform: uppercase;
   letter-spacing: 0.25rem;
 }
