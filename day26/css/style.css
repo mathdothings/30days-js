@@ -4,6 +4,7 @@
   --red: #841C26;
   --red-transp: #841C2655;
   --blue: #2191FB;
+  --black: rgba(0, 0, 0, 80%)
 }
 
 * {
@@ -23,6 +24,8 @@ body {
   background-position: center;
   background-size: cover;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -36,7 +39,7 @@ body {
 }
 
 .header__title, .header__subtitle, .header__info {
-  background-color: rgba(0, 0, 0, 80%);
+  background-color: var(--black);
   padding: 1rem 0.5rem;
   color: var(--soft-red);
   text-transform: uppercase;
@@ -97,4 +100,25 @@ body {
 .header__search-bar-icon {
   border: none;
   outline: none;
+}
+
+.footer {
+  margin-top: auto;
+  margin-bottom: 1rem;
+  display: block;
+  background-color: var(--black);
+  color: white;
+}
+
+.footer__github-link {
+  display: inline-block;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: var(--soft-red);
+  font-size: 1.25rem;
+  font-weight: 600; 
+}
+
+.footer__github-link:hover {
+  color: var(--blue);
 }
