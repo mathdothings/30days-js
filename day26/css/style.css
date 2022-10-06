@@ -62,6 +62,11 @@ body {
   justify-content: center;
 }
 
+.nav__nav-option__arrow {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 .nav__option {
   border-color: var(--soft-red);
   width: fit-content;
@@ -77,27 +82,27 @@ body {
   outline-color: var(--soft-red);
 }
 
-.header__search-bar-container {
-  margin: 1rem;
+.main__search-bar-container {
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
 }
 
-.header__search-bar-input {
+.main__search-bar-input {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   text-transform: uppercase;
 }
 
-.header__search-bar-input:focus {
+.main__search-bar-input:focus {
   border-color: var(--soft-red);
   outline-color: var(--soft-red);
   color: var(--blue);
 }
 
-.header__search-bar-icon {
+.main__search-bar-icon {
   border: none;
   outline: none;
 }
@@ -113,10 +118,12 @@ body {
 .footer__github-link {
   display: inline-block;
   margin-top: 1rem;
+  text-transform: uppercase;
   text-decoration: none;
+  letter-spacing: 0.15rem;
   color: var(--soft-red);
-  font-size: 1.25rem;
-  font-weight: 600; 
+  font-size: 1rem;
+  font-weight: 900; 
 }
 
 .footer__github-link:hover {
