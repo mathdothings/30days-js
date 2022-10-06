@@ -95,9 +95,9 @@ body {
 .main__search-bar-container {
   margin-top: 1rem;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.15rem;
 }
 
 .main__search-bar-input {
@@ -120,6 +120,7 @@ body {
 .main__search-bar-icon {
   border: none;
   outline: none;
+  scale: 0.85;
 }
 
 .main__search-bar-icon:disabled {
