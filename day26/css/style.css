@@ -67,6 +67,10 @@ body {
   height: 1.25rem;
 }
 
+.nav__nav-option__arrow:disabled  {
+  color: var(--soft-blue);
+}
+
 .nav__option {
   border-color: var(--soft-red);
   width: fit-content;
@@ -80,6 +84,12 @@ body {
   background-color: var(--blue);
   border-color: var(--soft-red);
   outline-color: var(--soft-red);
+}
+
+.nav__option:disabled {
+  color: var(--soft-blue);
+  border-color: var(--soft-blue);
+  outline-color: var(--soft-blue);
 }
 
 .main__search-bar-container {
@@ -102,9 +112,18 @@ body {
   color: var(--blue);
 }
 
+.main__search-bar-input:disabled {
+  border-color: var(--soft-blue);
+  outline-color: var(--soft-blue);
+}
+
 .main__search-bar-icon {
   border: none;
   outline: none;
+}
+
+.main__search-bar-icon:disabled {
+  color: var(--soft-blue);
 }
 
 .footer {

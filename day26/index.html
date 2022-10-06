@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="./js/script.js"></script>
+    <script defer src="./js/script.js"></script>
   </head>
   <body>
     <header class="header text-center container">
@@ -38,10 +38,14 @@
         </button>
       </nav>
       <section class="main__search-bar-container">
-        <input type="text" class="main__search-bar-input" /><button
-          class="main__search-bar-icon"
-          type="button"
-        >
+        <input
+          required
+          size="20"
+          type="text"
+          id="search-input"
+          value=""
+          class="main__search-bar-input"
+        /><button class="main__search-bar-icon" type="button">
           <i data-feather="search"></i>
         </button>
       </section>
