@@ -57,14 +57,11 @@
     const buttons = document.querySelectorAll("button");
     buttons.forEach((button) => {
       button.onclick = () => {
-        console.log(button.innerText.toLocaleLowerCase());
+        console.log(button.innerHTML);
         return button;
       };
     });
   };
-
-  // getData();
-  observeClickedButton();
 
   // Debug -->
   setTimeout(() => {
