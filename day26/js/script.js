@@ -1,8 +1,8 @@
 /* 
-  self-invoking function is a way to leave out of global scope important script's functions, without the need of declare another 'scope function'. Functions in global score can be invoked directly from user's browser's console
+  self-invoking function is a way to leave out of global scope important script's functions, without the needed of declare another 'scope function'. Functions in global scope can be invoked directly from user's browser's console
 */
 (function main() {
-  const disableFeatures = () => {
+  const disableButtons = () => {
     // disable buttons until data fetch is fullified
     window.onload = () => {
       console.log("Disabling features...");
@@ -18,7 +18,7 @@
     };
   };
 
-  const enableFeatures = () => {
+  const enableButtons = () => {
     console.log("Enabling features...");
     const buttons = document.querySelectorAll("button");
     buttons.forEach((button) => (button.disabled = false));
@@ -30,7 +30,7 @@
     console.log("Features enabled");
   };
 
-  disableFeatures();
+  disableButtons();
 
   const URL = "https://restcountries.com/v3.1/all";
 
@@ -48,9 +48,23 @@
           console.log("Data fetched sucessfully!");
           console.log("Data:", APIDATA);
         })
-        .then(enableFeatures());
+        .then(enableButtons())
+        .then(observeClickedButton());
     });
   };
+
+  const observeClickedButton = () => {
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach((button) => {
+      button.onclick = () => {
+        console.log(button.innerText.toLocaleLowerCase());
+        return button;
+      };
+    });
+  };
+
+  // getData();
+  observeClickedButton();
 
   // Debug -->
   setTimeout(() => {
