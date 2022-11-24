@@ -4,6 +4,11 @@
 (function main() {
   const URL = "https://restcountries.com/v3.1/all";
 
+  const getAllElements = (selector) => {
+    const element = document.querySelectorAll(selector);
+    return element;
+  };
+
   // disable buttons until data fetch is fullified
   const disableButtons = () => {
     const buttons = document.querySelectorAll("button");
@@ -40,9 +45,10 @@
 
   // returns what button the user is clicking
   const observeClickedButton = () => {
-    const buttons = document.querySelectorAll("button");
+    const buttons = getAllElements("button");
     buttons.forEach((button) => {
       button.onclick = () => {
+        console.log(button);
         return button;
       };
     });
