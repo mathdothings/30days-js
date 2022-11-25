@@ -44,7 +44,7 @@
   };
 
   // returns what button the user is clicking
-  const observeClickedButton = () => {
+  const isClicking = () => {
     const buttons = getAllElements("button");
     buttons.forEach((button) => {
       button.onclick = () => {
@@ -54,16 +54,28 @@
     });
   };
 
+  // checks if the user is typing any key
+  const isTyping = () => {
+    const inputs = getAllElements("input");
+    inputs.forEach((input) => {
+      input.onkeydown = (event) => {
+        console.log(event.key);
+      };
+    });
+  };
+
+  // starts the application
   const start = async () => {
     disableButtons();
     await getData(URL);
     enableButtons();
-    observeClickedButton();
+    isClicking();
+    isTyping();
   };
 
   start();
 
   // Debug -->
-
+  // + * ~ - == ===
   // <--
 })();
