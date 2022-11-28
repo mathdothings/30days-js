@@ -80,10 +80,12 @@ body {
   outline: none;
 }
 
+.nav__option--active {
+  background-color: var(--blue);
+}
+
 .nav__option:hover, .nav__option:focus {
   background-color: var(--blue);
-  border-color: var(--soft-red);
-  outline-color: var(--soft-red);
 }
 
 .nav__option:disabled {

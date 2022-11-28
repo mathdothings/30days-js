@@ -48,7 +48,10 @@
     const buttons = getAllElements("button");
     buttons.forEach((button) => {
       button.onclick = () => {
-        console.log(button);
+        buttons.forEach((button) => {
+          removeClass(button, "nav__option--active");
+        });
+        addClass(button, "nav__option--active");
         return button;
       };
     });
@@ -59,10 +62,25 @@
     const inputs = getAllElements("input");
     inputs.forEach((input) => {
       input.onkeydown = (event) => {
-        console.log("Is typing...");
         return true;
       };
     });
+  };
+
+  const timeout = () => {
+    const buttons = getAllElements("button");
+    setTimeout(() => {
+      console.log("Timeout...");
+    }, 1000);
+  };
+
+  const addClass = (element, style) => {
+    console.log("Style applyied");
+    element.classList.add(`${style}`);
+  };
+
+  const removeClass = (element, style) => {
+    element.classList.remove(`${style}`);
   };
 
   // starts the application
