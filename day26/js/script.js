@@ -59,7 +59,8 @@
     const inputs = getAllElements("input");
     inputs.forEach((input) => {
       input.onkeydown = (event) => {
-        console.log(event.key);
+        console.log("Is typing...");
+        return true;
       };
     });
   };
