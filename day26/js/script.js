@@ -87,7 +87,7 @@
     element.classList.remove(`${style}`);
   };
 
-  const setDefaultValues = () => {
+  const setToDefaultValues = () => {
     const buttons = getAllElements(".nav__option");
     let activeButton = buttons[0];
     addClass(activeButton, "nav__option--active");
@@ -97,7 +97,7 @@
   const start = async () => {
     disableButtons();
     await getData(URL);
-    setDefaultValues();
+    setToDefaultValues();
     enableButtons();
     clickedButton();
     isTyping();
@@ -106,7 +106,5 @@
 
   start();
 
-  // Debug -->
-  // + * ~ - == ===
-  // <--
+  // + - ~ * = == === > <
 })();
