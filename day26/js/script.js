@@ -44,17 +44,23 @@
   };
 
   // returns what button the user is clicking
-  const isClicking = () => {
-    const buttons = getAllElements("button");
+  const clickedButton = () => {
+    const buttons = getAllElements(".nav__option");
     buttons.forEach((button) => {
       button.onclick = () => {
-        buttons.forEach((button) => {
-          removeClass(button, "nav__option--active");
-        });
-        addClass(button, "nav__option--active");
+        stylizeActiveButton(button);
         return button;
       };
     });
+  };
+
+  // stylize the active (last) clicked button
+  const stylizeActiveButton = (activeButton) => {
+    const buttons = getAllElements(".nav__option");
+    buttons.forEach((button) => {
+      removeClass(button, "nav__option--active");
+    });
+    addClass(activeButton, "nav__option--active");
   };
 
   // checks if the user is typing any key
@@ -67,15 +73,13 @@
     });
   };
 
-  const timeout = () => {
-    const buttons = getAllElements("button");
-    setTimeout(() => {
-      console.log("Timeout...");
-    }, 1000);
+  const getInputInnerText = () => {
+    const input = document.querySelector("input");
+    console.log(input.innerText);
+    return input.innerText;
   };
 
   const addClass = (element, style) => {
-    console.log("Style applyied");
     element.classList.add(`${style}`);
   };
 
@@ -83,13 +87,21 @@
     element.classList.remove(`${style}`);
   };
 
+  const setDefaultValues = () => {
+    const buttons = getAllElements(".nav__option");
+    let activeButton = buttons[0];
+    addClass(activeButton, "nav__option--active");
+  };
+
   // starts the application
   const start = async () => {
     disableButtons();
     await getData(URL);
+    setDefaultValues();
     enableButtons();
-    isClicking();
+    clickedButton();
     isTyping();
+    getInputInnerText();
   };
 
   start();
