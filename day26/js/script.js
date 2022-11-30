@@ -3,6 +3,7 @@
 */
 (function main() {
   const URL = "https://restcountries.com/v3.1/all";
+  let DATA = []; // all API data will be stored into this array
 
   const getAllElements = (selector) => {
     const element = document.querySelectorAll(selector);
@@ -37,46 +38,66 @@
     try {
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
+      return data;
     } catch (error) {
       console.warn(error);
     }
   };
 
-  // returns what button the user is clicking
-  const clickedButton = () => {
+  // handle the last button where user has clicked
+  const handleClickedButton = () => {
     const buttons = getAllElements(".nav__option");
     buttons.forEach((button) => {
       button.onclick = () => {
+        // clearRenderedData();
         stylizeActiveButton(button);
-        return button;
+        getInputValue();
+        filterData();
+        // renderData();
       };
     });
   };
 
   // stylize the active (last) clicked button
-  const stylizeActiveButton = (activeButton) => {
+  const stylizeActiveButton = (activatedButton) => {
     const buttons = getAllElements(".nav__option");
     buttons.forEach((button) => {
-      removeClass(button, "nav__option--active");
+      if (!(activatedButton === buttons[buttons.length - 1])) {
+        removeClass(button, "nav__option--active");
+      }
     });
-    addClass(activeButton, "nav__option--active");
+    if (!(activatedButton === buttons[buttons.length - 1])) {
+      addClass(activatedButton, "nav__option--active");
+    } else {
+      const arrow = document.getElementsByClassName("nav__nav-option__arrow");
+      arrow[0].classList.toggle("nav__nav-option__arrow--rotate");
+    }
   };
 
   // checks if the user is typing any key
   const isTyping = () => {
     const inputs = getAllElements("input");
     inputs.forEach((input) => {
-      input.onkeydown = (event) => {
+      input.onkeydown = () => {
         return true;
       };
     });
   };
 
-  const getInputInnerText = () => {
-    const input = document.querySelector("input");
-    console.log(input.innerText);
-    return input.innerText;
+  const getInputValue = () => {
+    const input = document.querySelector("#search-input");
+    return input.value;
+  };
+
+  const filterData = () => {
+    const input = getInputValue();
+    const result = DATA.filter((country) => {
+      if (country.name.common.toLocaleLowerCase().startsWith(input)) {
+        return country;
+      }
+    });
+    return result.sort();
   };
 
   const addClass = (element, style) => {
@@ -96,12 +117,11 @@
   // starts the application
   const start = async () => {
     disableButtons();
-    await getData(URL);
+    DATA = await getData(URL);
     setToDefaultValues();
     enableButtons();
-    clickedButton();
+    handleClickedButton();
     isTyping();
-    getInputInnerText();
   };
 
   start();

@@ -67,6 +67,10 @@ body {
   height: 1.25rem;
 }
 
+.nav__nav-option__arrow--rotate {
+  rotate: 180deg;
+}
+
 .nav__nav-option__arrow:disabled  {
   color: var(--soft-blue);
 }
