@@ -51,7 +51,6 @@
     buttons.forEach((button) => {
       button.onclick = () => {
         stylizeActivatedButton(button);
-        filterData();
         renderDynamicData();
       };
     });
@@ -143,11 +142,9 @@
       "nav__nav-option__arrow--rotate"
     );
     if (order.length === 0) {
-      console.log(result);
       return result;
     } else {
       // shallow copy of the result array to preserve it from the destructive reverse method
-      console.log((reverted = [...result].reverse()));
       return (reverted = [...result].reverse());
     }
   };

@@ -109,7 +109,7 @@ body {
 .main__search-bar-container {
   margin-top: 1rem;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   gap: 0.15rem;
 }
@@ -159,6 +159,7 @@ body {
   background-color:white;
   color: var(--black);
   font-size: 1.25rem;
+  cursor: pointer;
 }
 
 .main__dynamic-card:hover {
@@ -180,10 +181,37 @@ body {
   text-decoration: none;
   letter-spacing: 0.15rem;
   color: var(--soft-red);
-  font-size: 1rem;
   font-weight: 900; 
 }
 
 .footer__github-link:hover {
   color: var(--blue);
 }
+
+@media screen and (max-width: 500px) {
+  .header__title {
+    font-size: 1.5rem;
+  }
+
+  .header__subtitle {
+    font-size: 1.10rem;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: center;
+  }
+
+  .nav__option {
+    padding: 0.5rem 1rem;
+  }
+
+  .main__search-bar-input {
+    padding: 1.15rem;
+  }
+  
+  .main__dynamic-container {
+    flex-direction: column;
+  }
+} 
