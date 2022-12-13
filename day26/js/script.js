@@ -59,7 +59,7 @@
     });
   };
 
-  // stylize the active (last) clicked button
+  // stylize the last clicked button
   const stylizeActivatedButton = (activatedButton) => {
     const buttons = getAllElements(".nav__option");
     buttons.forEach((button) => {
@@ -72,6 +72,8 @@
     } else {
       const arrow = document.getElementsByClassName("nav__nav-option__arrow");
       arrow[0].classList.toggle("nav__nav-option__arrow--rotate");
+      // console.log(filterData().reverse());
+      // filterData().reverse();
     }
   };
 
@@ -87,17 +89,60 @@
 
   const getInputValue = () => {
     const input = document.querySelector("#search-input");
-    return input.value;
+    return input.value.toLocaleLowerCase();
   };
 
   const filterData = () => {
     const input = getInputValue();
-    const result = DATA.filter((country) => {
-      if (country.name.common.toLocaleLowerCase().startsWith(input)) {
-        return country;
+    const activatedButton = document.getElementsByClassName(
+      "nav__option--active"
+    );
+    console.log(activatedButton[0].textContent.toLocaleLowerCase());
+    let result = [];
+
+    if (
+      activatedButton[0].textContent.toLocaleLowerCase() === "starting word"
+    ) {
+      result = DATA.filter((country) => {
+        if (country.name.common.toLocaleLowerCase().startsWith(input)) {
+          return country;
+        }
+      });
+    } else {
+      result = DATA.filter((country) => {
+        if (country.name.common.toLocaleLowerCase().indexOf(input) !== -1) {
+          return country;
+        }
+      });
+    }
+
+    // sort countries by common name in ascending insensitively
+    result.sort((first, second) => {
+      let firstName = first.name.common.toLocaleLowerCase();
+      let secondName = second.name.common.toLocaleLowerCase();
+
+      if (firstName < secondName) {
+        return -1;
       }
+
+      if (firstName > secondName) {
+        return 1;
+      }
+
+      return 0;
     });
-    return result.sort();
+
+    const order = document.getElementsByClassName(
+      "nav__nav-option__arrow--rotate"
+    );
+    if (order.length === 0) {
+      console.log(result);
+      return result;
+    } else {
+      // shallow copy of the result array to preserve it from the destructive reverse method
+      console.log((reverted = [...result].reverse()));
+      return (reverted = [...result].reverse());
+    }
   };
 
   const addClass = (element, style) => {
