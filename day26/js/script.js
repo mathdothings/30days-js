@@ -50,11 +50,9 @@
     const buttons = getAllElements(".nav__option");
     buttons.forEach((button) => {
       button.onclick = () => {
-        // clearRenderedData();
         stylizeActivatedButton(button);
-        getInputValue();
         filterData();
-        // renderData();
+        renderDynamicData();
       };
     });
   };
@@ -72,19 +70,29 @@
     } else {
       const arrow = document.getElementsByClassName("nav__nav-option__arrow");
       arrow[0].classList.toggle("nav__nav-option__arrow--rotate");
-      // console.log(filterData().reverse());
-      // filterData().reverse();
     }
   };
 
-  // checks if the user is typing any key
-  const isTyping = () => {
-    const inputs = getAllElements("input");
-    inputs.forEach((input) => {
-      input.onkeydown = () => {
-        return true;
-      };
-    });
+  // handle the application after wait for the user's typeing
+  const handleAppAfterTyping = () => {
+    let timer;
+    const waitMileseconds = 500;
+    const input = document.querySelector("input");
+    input.onkeydown = () => {
+      clearTimeout(timer);
+
+      timer = setTimeout(() => {
+        if (getInputValue() === "") {
+          clearDynamicContent();
+          const container = document.querySelector(".main__dynamic-container");
+          container.style.backgroundColor = "none";
+        } else {
+          renderDynamicData();
+        }
+        renderCountriesWithLetter();
+        renderTotalCountriesAmountWithLetter();
+      }, waitMileseconds);
+    };
   };
 
   const getInputValue = () => {
@@ -97,7 +105,6 @@
     const activatedButton = document.getElementsByClassName(
       "nav__option--active"
     );
-    console.log(activatedButton[0].textContent.toLocaleLowerCase());
     let result = [];
 
     if (
@@ -145,6 +152,32 @@
     }
   };
 
+  // render total amount of countries
+  const renderTotalAmountOfCountries = () => {
+    const elements = getAllElements(".header__subtitle--total-amount");
+    elements[0].textContent = DATA.length;
+  };
+
+  // render countries with specific letter
+  const renderCountriesWithLetter = () => {
+    const elements = getAllElements(".header__info--filter-letter");
+    if (getInputValue() === "") {
+      elements[0].textContent = "--";
+    } else {
+      elements[0].textContent = getInputValue();
+    }
+  };
+
+  // render total countries amount with specific letter
+  const renderTotalCountriesAmountWithLetter = () => {
+    const elements = getAllElements(".header__info--filter-total-amount");
+    if (getInputValue() === "") {
+      elements[0].textContent = "--";
+    } else {
+      elements[0].textContent = filterData().length;
+    }
+  };
+
   const addClass = (element, style) => {
     element.classList.add(`${style}`);
   };
@@ -159,14 +192,40 @@
     addClass(activeButton, "nav__option--active");
   };
 
+  // remove every child inside the dynamic conteiner element
+  const clearDynamicContent = () => {
+    const mainContent = document.querySelector(".main__dynamic-container");
+    while (mainContent.firstChild) {
+      mainContent.removeChild(mainContent.lastChild);
+    }
+    removeClass(mainContent, "main__dynamic-container--highlight");
+  };
+
+  // render data inside dynamic container element
+  const renderDynamicData = () => {
+    clearDynamicContent();
+    if (getInputValue() !== "" && filterData().length > 0) {
+      const data = filterData();
+      const container = document.querySelector(".main__dynamic-container");
+      addClass(container, "main__dynamic-container--highlight");
+      data.forEach((item) => {
+        const p = document.createElement("p");
+        container.appendChild(p);
+        p.classList.add("main__dynamic-card");
+        p.textContent = item.name.common + " " + item.flag;
+      });
+    }
+  };
+
   // starts the application
   const start = async () => {
     disableButtons();
     DATA = await getData(URL);
     setToDefaultValues();
     enableButtons();
+    renderTotalAmountOfCountries();
     handleClickedButton();
-    isTyping();
+    handleAppAfterTyping();
   };
 
   start();

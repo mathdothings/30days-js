@@ -46,6 +46,14 @@ body {
   letter-spacing: 0.25rem;
 }
 
+.header__subtitle--total-amount {
+  color: var(--blue);
+}
+
+.header__info--filter-letter, .header__info--filter-total-amount {
+  color: var(--blue);
+}
+
 .header__info {
   margin-bottom: 1rem;
 }
@@ -131,6 +139,30 @@ body {
 
 .main__search-bar-icon:disabled {
   color: var(--soft-blue);
+}
+
+.main__dynamic-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.main__dynamic-container--highlight {
+  background-color: var(--black);
+}
+
+.main__dynamic-card {
+  padding: 1rem;
+  background-color:white;
+  color: var(--black);
+  font-size: 1.25rem;
+}
+
+.main__dynamic-card:hover {
+  background-color: var(--blue);
 }
 
 .footer {
