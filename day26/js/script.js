@@ -1,6 +1,9 @@
 /* 
   self-invoking function is a way to leave out of global scope important script's functions, without the needed of declare another 'scope function'. Functions in global scope can be invoked directly from user's browser's console
 */
+
+// link to this project: https://mathdothings.github.io/30days-js/day26/
+
 (function main() {
   const URL = "https://restcountries.com/v3.1/all";
   let DATA = []; // all API data will be stored into this array
