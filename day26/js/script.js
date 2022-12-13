@@ -51,7 +51,7 @@
     buttons.forEach((button) => {
       button.onclick = () => {
         // clearRenderedData();
-        stylizeActiveButton(button);
+        stylizeActivatedButton(button);
         getInputValue();
         filterData();
         // renderData();
@@ -60,7 +60,7 @@
   };
 
   // stylize the active (last) clicked button
-  const stylizeActiveButton = (activatedButton) => {
+  const stylizeActivatedButton = (activatedButton) => {
     const buttons = getAllElements(".nav__option");
     buttons.forEach((button) => {
       if (!(activatedButton === buttons[buttons.length - 1])) {
@@ -110,7 +110,7 @@
 
   const setToDefaultValues = () => {
     const buttons = getAllElements(".nav__option");
-    let activeButton = buttons[0];
+    const activeButton = buttons[0];
     addClass(activeButton, "nav__option--active");
   };
 

@@ -76,7 +76,6 @@ body {
 }
 
 .nav__option {
-  border-color: var(--soft-red);
   width: fit-content;
   padding: 0.25rem 1rem;
   border-radius: 0.25rem;
@@ -86,9 +85,10 @@ body {
 
 .nav__option--active {
   background-color: var(--blue);
+  border-color: var(--soft-red);
 }
 
-.nav__option:hover, .nav__option:focus {
+.nav__option:hover {
   background-color: var(--blue);
 }
 
