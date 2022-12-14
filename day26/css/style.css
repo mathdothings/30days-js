@@ -20,12 +20,13 @@ html {
 body {
   font-family: 'M PLUS 2', sans-serif;
   background-image: url("../image/world-map.jpg");
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-position: center;
   background-size: cover;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .container {
@@ -193,9 +194,6 @@ body {
 }
 
 @media screen and (max-width: 500px) {
-  body {
-    height: auto;
-  }
   
   .header__title {
     font-size: 1.5rem;

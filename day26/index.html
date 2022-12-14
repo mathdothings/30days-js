@@ -16,28 +16,28 @@
     <script defer src="./js/script.js"></script>
   </head>
   <body>
-    <header class="header text-center container">
-      <h1 class="header__title">World Countries List</h1>
-      <h2 class="header__subtitle">
-        Total number of countries:
-        <span class="header__subtitle--total-amount">0</span>
-      </h2>
-      <h3 class="header__info">
-        Countries with <span class="header__info--filter-letter">--</span> are
-        <span class="header__info--filter-total-amount">--</span>
-      </h3>
-    </header>
-    <nav class="nav">
-      <button type="button" class="nav__option">Starting word</button>
-      <button type="button" class="nav__option">Search with any word</button>
-      <button type="button" class="nav__option nav__option-container">
-        <p>
-          <i data-feather="arrow-down" class="nav__nav-option__arrow"></i>
-        </p>
-        <p>AZ</p>
-      </button>
-    </nav>
-    <main class="container">
+    <div class="flex-line">
+      <header class="header text-center container">
+        <h1 class="header__title">World Countries List</h1>
+        <h2 class="header__subtitle">
+          Total number of countries:
+          <span class="header__subtitle--total-amount">0</span>
+        </h2>
+        <h3 class="header__info">
+          Countries with <span class="header__info--filter-letter">--</span> are
+          <span class="header__info--filter-total-amount">--</span>
+        </h3>
+      </header>
+      <nav class="nav">
+        <button type="button" class="nav__option">Starting word</button>
+        <button type="button" class="nav__option">Search with any word</button>
+        <button type="button" class="nav__option nav__option-container">
+          <p>
+            <i data-feather="arrow-down" class="nav__nav-option__arrow"></i>
+          </p>
+          <p>AZ</p>
+        </button>
+      </nav>
       <section class="main__search-bar-container">
         <input
           required
@@ -53,17 +53,24 @@
           <i data-feather="search"></i>
         </button>
       </section>
-      <div class="main__dynamic-container"></div>
-    </main>
-    <footer class="footer container text-center">
-      <p>Coded by: mathdothings</p>
-      <a
-        href="https://github.com/mathdothings"
-        target="_blank"
-        class="footer__github-link"
-        >Github</a
-      >
-    </footer>
+    </div>
+    <div class="flex-line">
+      <main class="container">
+        <div class="main__dynamic-container"></div>
+      </main>
+    </div>
+    <div class="flex-line">
+      <footer class="footer container text-center">
+        <p>Coded by: mathdothings</p>
+        <a
+          href="https://github.com/mathdothings"
+          target="_blank"
+          class="footer__github-link"
+          >Github</a
+        >
+      </footer>
+    </div>
+
     <script>
       feather.replace();
     </script>
